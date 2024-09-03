@@ -1,0 +1,2 @@
+# Amostragem-casual-simples 
+ 
