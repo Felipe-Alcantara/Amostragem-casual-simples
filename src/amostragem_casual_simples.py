@@ -1,0 +1,36 @@
+print("=" * 70)
+print("          AMOSTRAGEM CASUAL SIMPLES (ACS)          ".center(70))
+print("=" * 70)
+print()
+
+print("📌 DEFINIÇÃO:")
+print("   Nesse tipo de amostragem, cada elemento da amostra é escolhido")
+print("   por sorteio individual a partir da população.")
+print("   Normalmente utilizamos uma porcentagem da população total.")
+print()
+print("-" * 70)
+print()
+
+# Entrada de dados
+populacao = int(input("📊 Digite a quantidade de elementos na sua população: "))
+porcentagem = float(input("📈 Digite a porcentagem que retirará da amostra (%): "))
+print()
+
+# Cálculo da amostra
+elementos_na_amostra = int((populacao * porcentagem) / 100)
+
+print("=" * 70)
+print("                    RESULTADO                    ".center(70))
+print("=" * 70)
+print()
+print(f"✅ População total: {populacao} elementos")
+print(f"✅ Porcentagem da amostra: {porcentagem}%")
+print(f"✅ Tamanho da amostra: {elementos_na_amostra} elementos")
+print()
+print("-" * 70)
+print()
+print("💡 PROCEDIMENTO:")
+print(f"   Pode-se inserir os {populacao} elementos em uma urna e retirar,")
+print(f"   aleatoriamente, {elementos_na_amostra} elementos para compor a amostra.")
+print()
+print("=" * 70)
