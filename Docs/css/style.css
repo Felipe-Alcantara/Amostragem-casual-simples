@@ -29,7 +29,8 @@ body.light-mode {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: #0f172a url('../images/c598f7e8-829f-412d-82dd-2bdffd2812c2.png') repeat;
+    background-size: 400px 400px;
     color: var(--text-color);
     min-height: 100vh;
     max-height: 100vh;
@@ -41,7 +42,9 @@ body {
 
 /* Light Mode */
 body.light-mode {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: #e2e8f0 url('../images/c598f7e8-829f-412d-82dd-2bdffd2812c2.png') repeat;
+    background-size: 400px 400px;
+    filter: brightness(1.2) saturate(0.8);
 }
 
 body.light-mode .card {
