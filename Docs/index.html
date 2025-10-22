@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicas de Amostragem Estatística</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.12.0/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.12.0/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📊 Técnicas de Amostragem Estatística</h1>
+            <p class="subtitle">Calculadora interativa de métodos de amostragem probabilística</p>
+        </header>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'casual')">
+                🎲 Amostragem Casual Simples
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'sistematica')">
+                🔢 Amostragem Sistemática
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'estratificada')">
+                📊 Amostragem Estratificada
+            </button>
+        </div>
+
+        <!-- Tab 1: Amostragem Casual Simples -->
+        <div id="casual" class="tab-content active">
+            <div class="card">
+                <h2>🎲 Amostragem Casual Simples (ACS)</h2>
+                <div class="info-box">
+                    <p><strong>📌 Definição:</strong></p>
+                    <p>Nesse tipo de amostragem, cada elemento da amostra é escolhido por sorteio individual a partir da população. Normalmente utilizamos uma porcentagem da população total.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="populacao_casual">📊 População Total:</label>
+                    <input type="number" id="populacao_casual" placeholder="Ex: 1000" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="porcentagem_casual">📈 Porcentagem da Amostra (%):</label>
+                    <input type="number" id="porcentagem_casual" placeholder="Ex: 10" min="0.1" max="100" step="0.1">
+                </div>
+
+                <button class="btn-primary" id="calcular_casual">Calcular Amostra</button>
+
+                <div id="resultado_casual" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Amostragem Sistemática -->
+        <div id="sistematica" class="tab-content">
+            <div class="card">
+                <h2>🔢 Amostragem Sistemática</h2>
+                <div class="info-box">
+                    <p><strong>📌 Definição:</strong></p>
+                    <p>Método que utiliza uma "semente" sorteada e um intervalo fixo (salto) para selecionar elementos de forma sistemática. Reduz a quantidade de sorteios necessários.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="populacao_sist">📊 População Total:</label>
+                    <input type="number" id="populacao_sist" placeholder="Ex: 500" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="amostra_sist">📈 Tamanho da Amostra Desejada:</label>
+                    <input type="number" id="amostra_sist" placeholder="Ex: 50" min="1">
+                </div>
+
+                <button class="btn-primary" id="calcular_sist">Calcular e Sortear</button>
+
+                <div id="resultado_sist" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Amostragem Estratificada -->
+        <div id="estratificada" class="tab-content">
+            <div class="card">
+                <h2>📊 Amostragem Proporcional Estratificada</h2>
+                <div class="info-box">
+                    <p><strong>📌 Definição:</strong></p>
+                    <p>Técnica para populações divididas em estratos (subgrupos), garantindo representatividade proporcional de cada grupo na amostra final.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="estrato1">📊 Estrato 1 - Número de Elementos:</label>
+                    <input type="number" id="estrato1" placeholder="Ex: 600" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="estrato2">📊 Estrato 2 - Número de Elementos:</label>
+                    <input type="number" id="estrato2" placeholder="Ex: 400" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="porcentagem_estrat">📈 Porcentagem da Amostra (%):</label>
+                    <input type="number" id="porcentagem_estrat" placeholder="Ex: 15" min="0.1" max="100" step="0.1">
+                </div>
+
+                <button class="btn-primary" id="calcular_estrat">Calcular Estratos</button>
+
+                <div id="resultado_estrat" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>💻 Desenvolvido com Python (Brython) | 📚 Projeto Educacional</p>
+            <p>
+                <a href="https://github.com/Felipe-Alcantara/Amostragem-casual-simples" target="_blank">
+                    GitHub Repository
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Tabs -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+    <!-- Brython Scripts -->
+    <script type="text/python" src="py/amostragem_casual_simples.py"></script>
+    <script type="text/python" src="py/amostragem_sistematica.py"></script>
+    <script type="text/python" src="py/amostragem_proporcional_estratificada.py"></script>
+</body>
+</html>
