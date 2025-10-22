@@ -71,10 +71,44 @@ def calcular_estratificada(ev):
         sample_box <= html.P(html.STRONG(f"📊 Total: {amostra1 + amostra2} elementos"))
         resultado_div <= sample_box
         
-        # Demonstração com amostragem sistemática
+        # REALIZAR SORTEIOS REAIS PARA CADA ESTRATO
+        sorteios_box = html.DIV(Class="sample-list")
+        sorteios_box <= html.P(html.STRONG("🎲 SORTEIOS REALIZADOS:"))
+        sorteios_box <= html.BR()
+        
+        # Sortear elementos do Estrato 1
+        if amostra1 > 0 and amostra1 <= estrato1:
+            populacao_estrato1 = list(range(1, estrato1 + 1))
+            sorteados_estrato1 = random.sample(populacao_estrato1, amostra1)
+            sorteados_estrato1.sort()
+            
+            sorteios_box <= html.P(html.STRONG(f"📍 Estrato 1 - Sorteio de {amostra1} elementos:"))
+            if amostra1 <= 20:
+                sorteios_box <= html.P(f"  {sorteados_estrato1}", style={"font-family": "monospace", "margin-left": "20px"})
+            else:
+                sorteios_box <= html.P(f"  Primeiros 10: {sorteados_estrato1[:10]}", style={"font-family": "monospace", "margin-left": "20px"})
+                sorteios_box <= html.P(f"  Últimos 10: {sorteados_estrato1[-10:]}", style={"font-family": "monospace", "margin-left": "20px"})
+            sorteios_box <= html.BR()
+        
+        # Sortear elementos do Estrato 2
+        if amostra2 > 0 and amostra2 <= estrato2:
+            populacao_estrato2 = list(range(1, estrato2 + 1))
+            sorteados_estrato2 = random.sample(populacao_estrato2, amostra2)
+            sorteados_estrato2.sort()
+            
+            sorteios_box <= html.P(html.STRONG(f"📍 Estrato 2 - Sorteio de {amostra2} elementos:"))
+            if amostra2 <= 20:
+                sorteios_box <= html.P(f"  {sorteados_estrato2}", style={"font-family": "monospace", "margin-left": "20px"})
+            else:
+                sorteios_box <= html.P(f"  Primeiros 10: {sorteados_estrato2[:10]}", style={"font-family": "monospace", "margin-left": "20px"})
+                sorteios_box <= html.P(f"  Últimos 10: {sorteados_estrato2[-10:]}", style={"font-family": "monospace", "margin-left": "20px"})
+        
+        resultado_div <= sorteios_box
+        
+        # Demonstração com amostragem sistemática (MÉTODO ALTERNATIVO)
         if total_amostra > 0 and total_amostra <= total_populacao:
             demo_box = html.DIV(Class="calculation")
-            demo_box <= html.P(html.STRONG("🎲 DEMONSTRAÇÃO - AMOSTRAGEM SISTEMÁTICA:"))
+            demo_box <= html.P(html.STRONG("🔢 MÉTODO ALTERNATIVO - AMOSTRAGEM SISTEMÁTICA:"))
             
             # Sortear semente
             semente = random.randint(1, 9)
@@ -82,13 +116,13 @@ def calcular_estratificada(ev):
             numeros_sorteados = numeros_sorteados[:total_amostra]
             
             demo_box <= html.P(f"Semente sorteada: {semente}")
-            demo_box <= html.P(f"Elementos terminados em {semente}:")
+            demo_box <= html.P(f"Elementos com terminação {semente}:")
             
-            if len(numeros_sorteados) > 15:
-                elementos_str = f"[{numeros_sorteados[0]}, {numeros_sorteados[1]}, {numeros_sorteados[2]}, ..., {numeros_sorteados[-2]}, {numeros_sorteados[-1]}]"
-                demo_box <= html.P(elementos_str)
+            if len(numeros_sorteados) <= 20:
+                demo_box <= html.P(f"{numeros_sorteados}", style={"font-family": "monospace"})
             else:
-                demo_box <= html.P(str(numeros_sorteados))
+                demo_box <= html.P(f"Primeiros 10: {numeros_sorteados[:10]}", style={"font-family": "monospace"})
+                demo_box <= html.P(f"Últimos 10: {numeros_sorteados[-10:]}", style={"font-family": "monospace"})
             
             demo_box <= html.P(f"Total: {len(numeros_sorteados)} elementos")
             resultado_div <= demo_box

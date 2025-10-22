@@ -62,20 +62,44 @@ def calcular_sistematica(ev):
         sample_box = html.DIV(Class="sample-list")
         sample_box <= html.P(html.STRONG("✅ ELEMENTOS SELECIONADOS:"))
         
-        # Formatar a lista de elementos
-        elementos_str = str(elementos_selecionados)
-        if len(elementos_selecionados) > 20:
-            # Se for muito grande, mostrar apenas início e fim
-            primeiros = elementos_selecionados[:10]
-            ultimos = elementos_selecionados[-10:]
-            elementos_str = f"{primeiros[0]}, {primeiros[1]}, {primeiros[2]}, ..., {ultimos[-3]}, {ultimos[-2]}, {ultimos[-1]}"
-            sample_box <= html.P(f"[{elementos_str}]")
-            sample_box <= html.P(f"(Mostrando início e fim da lista)")
-        else:
-            sample_box <= html.P(elementos_str)
+        # Mostrar o processo de seleção
+        sample_box <= html.P(f"🎲 Semente sorteada: {semente}")
+        sample_box <= html.P(f"➡️ Sequência gerada: {semente}, {semente + intervalo_int}, {semente + 2*intervalo_int}, ...")
+        sample_box <= html.BR()
         
+        # Formatar a lista de elementos
+        if len(elementos_selecionados) <= 30:
+            sample_box <= html.P(f"Amostra completa: {elementos_selecionados}", style={"font-family": "monospace"})
+        else:
+            # Se for muito grande, mostrar apenas início e fim
+            primeiros = elementos_selecionados[:15]
+            ultimos = elementos_selecionados[-15:]
+            sample_box <= html.P(f"Primeiros 15: {primeiros}", style={"font-family": "monospace"})
+            sample_box <= html.P(f"...")
+            sample_box <= html.P(f"Últimos 15: {ultimos}", style={"font-family": "monospace"})
+        
+        sample_box <= html.BR()
         sample_box <= html.P(html.STRONG(f"📊 Total de elementos na amostra: {len(elementos_selecionados)}"))
         resultado_div <= sample_box
+        
+        # Exemplo prático detalhado
+        exemplo_box = html.DIV(Class="calculation")
+        exemplo_box <= html.P(html.STRONG("🔍 EXEMPLO DO PROCESSO:"))
+        exemplo_box <= html.P(f"Começamos no elemento {semente}")
+        
+        # Mostrar alguns passos do processo
+        passos = min(5, len(elementos_selecionados))
+        for i in range(passos):
+            elemento = elementos_selecionados[i]
+            if i == 0:
+                exemplo_box <= html.P(f"  • Passo {i+1}: Elemento {elemento} (semente inicial)")
+            else:
+                exemplo_box <= html.P(f"  • Passo {i+1}: Elemento {elemento} ({semente} + {i}×{intervalo_int} = {elemento})")
+        
+        if len(elementos_selecionados) > passos:
+            exemplo_box <= html.P(f"  • ... (continuando até completar {len(elementos_selecionados)} elementos)")
+        
+        resultado_div <= exemplo_box
         
     except ValueError:
         mostrar_erro_sist("Por favor, preencha todos os campos com valores válidos!")
