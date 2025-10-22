@@ -12,6 +12,15 @@
     --warning-color: #f59e0b;
 }
 
+/* Light Mode Variables */
+body.light-mode {
+    --dark-bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #cbd5e1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +34,40 @@ body {
     min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode */
+body.light-mode {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+body.light-mode .card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .form-group input {
+    background: #f8fafc;
+}
+
+body.light-mode .result-box {
+    background: #f8fafc;
+}
+
+body.light-mode .info-box {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+body.light-mode .result-box .result-item {
+    background: rgba(16, 185, 129, 0.05);
+}
+
+body.light-mode .result-box .calculation {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+body.light-mode .result-box .sample-list {
+    background: rgba(245, 158, 11, 0.05);
 }
 
 .container {
@@ -40,7 +83,6 @@ body {
 
 /* Header */
 header {
-    text-align: center;
     padding: 40px 20px;
     background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
     border-radius: 15px;
@@ -48,16 +90,60 @@ header {
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-content > div {
+    flex: 1;
+    text-align: center;
+}
+
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 .subtitle {
     font-size: 1.1rem;
     opacity: 0.9;
     font-weight: 300;
+    color: white;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(180deg) scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+.theme-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 /* Tabs */
@@ -286,7 +372,23 @@ footer a:hover {
 /* Responsive */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+    }
+    
+    .header-content > div {
+        text-align: center;
+    }
+    
+    .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
     }
     
     .tabs {
