@@ -1,0 +1,9 @@
+{
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.exclude": [
+    "**/docs/py/**"
+  ],
+  "python.analysis.ignore": [
+    "**/docs/py/**"
+  ]
+}
