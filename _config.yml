@@ -1,0 +1,17 @@
+# Exclude from processing
+exclude:
+  - .vscode/
+  - src/
+  - LICENSE
+  - README.md
+
+# Include these directories
+include:
+  - docs/
+
+# Site settings (optional)
+title: "Técnicas de Amostragem Estatística"
+description: "Calculadora interativa de métodos de amostragem probabilística"
+
+# Theme (optional)
+theme: null
