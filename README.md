@@ -1,117 +1,186 @@
-# 🌐 Versão Web - Técnicas de Amostragem
+# 📊 Técnicas de Amostragem em Python
 
-Esta é a versão web interativa do projeto, desenvolvida com **Brython** (Browser Python).
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
-## 🚀 Acesso Online
+> Uma coleção de scripts Python para demonstrar e calcular diferentes técnicas de amostragem estatística de forma interativa e educacional.
 
-Acesse a aplicação web em: **[GitHub Pages](https://felipe-alcantara.github.io/Amostragem-casual-simples/)**
+## 📖 Sobre o Projeto
 
-## 📋 O que é?
+Este projeto nasceu durante minhas aulas de **Estatística em setembro de 2024**, quando percebi a necessidade de ter ferramentas práticas para visualizar e compreender melhor os diferentes métodos de amostragem. Recentemente (outubro de 2025), redescobri este projeto esquecido no meu GitHub e decidi dar uma **repaginada completa**, melhorando o código, a organização e a apresentação visual dos scripts.
 
-Uma calculadora web interativa que implementa três técnicas de amostragem estatística:
-- 🎲 Amostragem Casual Simples (ACS)
-- 🔢 Amostragem Sistemática
-- 📊 Amostragem Proporcional Estratificada
+### 🎯 Objetivo
 
-## 🛠️ Tecnologias Utilizadas
+Fornecer implementações práticas e didáticas de três principais técnicas de amostragem estatística:
+- **Amostragem Casual Simples (ACS)**
+- **Amostragem Sistemática**
+- **Amostragem Proporcional Estratificada**
 
-- **HTML5** - Estrutura da página
-- **CSS3** - Estilização moderna e responsiva
-- **Brython 3.12** - Python no navegador
-- **JavaScript** - Controle de abas/tabs
+## 🚀 Para Que Serve?
 
-## 📁 Estrutura
+Este projeto é útil para:
+
+- 📚 **Estudantes de Estatística**: Visualizar na prática como funcionam diferentes técnicas de amostragem
+- 💻 **Estudantes de Python**: Estudar lógica de programação com exemplos práticos e aplicados
+- 🔬 **Pesquisadores**: Ter uma referência rápida para implementar métodos de amostragem
+- 🎓 **Professores**: Usar como material didático em aulas de Estatística ou Programação
+- 🧮 **Profissionais**: Calcular rapidamente tamanhos de amostras para pesquisas e estudos
+
+## 📁 Estrutura do Projeto
 
 ```
-docs/
-├── index.html              # Página principal
-├── css/
-│   └── style.css          # Estilos da aplicação
-├── py/
-│   ├── amostragem_casual_simples.py
-│   ├── amostragem_sistematica.py
-│   └── amostragem_proporcional_estratificada.py
-└── README.md              # Este arquivo
+Amostragem-casual-simples/
+├── src/
+│   ├── amostragem_casual_simples.py          # Amostragem Casual Simples
+│   ├── amostragem_sistematica.py             # Amostragem Sistemática
+│   └── amostragem_proporcional_estratificada.py  # Amostragem Estratificada
+├── LICENSE
+└── README.md
 ```
 
-## 🎨 Características
+## 🛠️ Técnicas Implementadas
 
-✅ Interface moderna e responsiva  
-✅ Design dark mode  
-✅ Cálculos em tempo real  
-✅ Validação de dados  
-✅ Resultados detalhados e formatados  
-✅ Compatível com dispositivos móveis  
-✅ Sem necessidade de instalação  
+### 1. 🎲 Amostragem Casual Simples (ACS)
 
-## 💻 Como Usar Localmente
+A forma mais básica de amostragem, onde cada elemento da população tem a mesma probabilidade de ser selecionado.
 
-1. Clone o repositório
-2. Abra o arquivo `docs/index.html` em qualquer navegador moderno
-3. Não é necessário servidor local (funciona direto no navegador)
+**Características:**
+- Sorteio individual de elementos
+- Baseado em porcentagem da população
+- Método mais simples e direto
 
-## 🌟 Funcionalidades
-
-### Amostragem Casual Simples
-- Calcula tamanho da amostra baseado em porcentagem
-- Mostra procedimento detalhado
-- Valida dados de entrada
-
-### Amostragem Sistemática
-- Calcula intervalo de salto
-- Sorteia semente aleatória
-- Gera lista de elementos selecionados
-
-### Amostragem Estratificada
-- Calcula proporções de cada estrato
-- Distribui amostra proporcionalmente
-- Demonstração com amostragem sistemática
-
-## 🔧 Personalização
-
-Para personalizar as cores, edite as variáveis CSS no arquivo `css/style.css`:
-
-```css
-:root {
-    --primary-color: #3b82f6;
-    --secondary-color: #10b981;
-    --dark-bg: #1e293b;
-    /* ... */
-}
+**Uso:**
+```bash
+python src/amostragem_casual_simples.py
 ```
 
-## 📱 Responsividade
+### 2. 🔢 Amostragem Sistemática
 
-A aplicação é totalmente responsiva e funciona bem em:
-- 💻 Desktops
-- 📱 Tablets
-- 📱 Smartphones
+Método que utiliza uma "semente" sorteada e um intervalo fixo (salto) para selecionar elementos de forma sistemática.
+
+**Características:**
+- Reduz a quantidade de sorteios necessários
+- Utiliza intervalo calculado (população/amostra)
+- Eficiente para grandes populações
+
+**Uso:**
+```bash
+python src/amostragem_sistematica.py
+```
+
+### 3. 📊 Amostragem Proporcional Estratificada
+
+Técnica avançada para populações divididas em estratos, garantindo representatividade proporcional de cada grupo.
+
+**Características:**
+- Garante representatividade de subgrupos
+- Calcula proporções automaticamente
+- Inclui demonstração com amostragem sistemática
+
+**Uso:**
+```bash
+python src/amostragem_proporcional_estratificada.py
+```
+
+## 💻 Como Usar
+
+### Pré-requisitos
+
+- Python 3.x instalado
+- Nenhuma biblioteca externa necessária (usa apenas módulos padrão)
+
+### Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Felipe-Alcantara/Amostragem-casual-simples.git
+```
+
+2. Navegue até a pasta do projeto:
+```bash
+cd Amostragem-casual-simples
+```
+
+3. Execute o script desejado:
+```bash
+python src/amostragem_casual_simples.py
+```
+
+### Exemplos de Uso
+
+#### Exemplo 1: Amostragem Casual Simples
+```
+População: 1000 elementos
+Porcentagem: 10%
+Resultado: 100 elementos na amostra
+```
+
+#### Exemplo 2: Amostragem Sistemática
+```
+População: 500 elementos
+Amostra desejada: 50 elementos
+Intervalo: 10
+Semente sorteada: 3
+Resultado: [3, 13, 23, 33, 43, ...]
+```
+
+#### Exemplo 3: Amostragem Estratificada
+```
+Estrato 1: 600 elementos (60%)
+Estrato 2: 400 elementos (40%)
+Porcentagem: 15%
+Resultado: 
+  - Estrato 1: 90 elementos
+  - Estrato 2: 60 elementos
+  - Total: 150 elementos
+```
+
+## 🎓 Conceitos Aprendidos
+
+Ao estudar este projeto, você vai praticar:
+
+### Python
+- ✅ Entrada e saída de dados (`input()`, `print()`)
+- ✅ Manipulação de variáveis e tipos de dados
+- ✅ Operações matemáticas e cálculos
+- ✅ Uso do módulo `random`
+- ✅ List comprehension e `range()`
+- ✅ Formatação de strings (f-strings)
+- ✅ Estruturação e organização de código
+
+### Estatística
+- ✅ Conceitos de população e amostra
+- ✅ Técnicas de amostragem probabilística
+- ✅ Cálculo de proporções e percentuais
+- ✅ Estratificação de populações
+- ✅ Amostragem sistemática com intervalos
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Para melhorar a versão web:
+Contribuições são bem-vindas! Sinta-se à vontade para:
 
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Faça suas alterações
-4. Envie um Pull Request
+1. Fazer um fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/NovaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/NovaFeature`)
+5. Abrir um Pull Request
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](../LICENSE) para detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👤 Autor
 
 **Felipe Alcântara**
 
 - GitHub: [@Felipe-Alcantara](https://github.com/Felipe-Alcantara)
-
 ---
 
 <div align="center">
 
-**Desenvolvido com ❤️ usando Python 🐍 e Brython**
+**⭐ Se este projeto foi útil para você, considere dar uma estrela!**
 
-[Voltar para o projeto principal](../README.md)
+Feito com ❤️ e Python 🐍
 
 </div>
