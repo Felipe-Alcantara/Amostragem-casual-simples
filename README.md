@@ -10,6 +10,27 @@
 
 Este projeto nasceu durante minhas aulas de **Estatística em setembro de 2024**, quando percebi a necessidade de ter ferramentas práticas para visualizar e compreender melhor os diferentes métodos de amostragem. Recentemente (outubro de 2025), redescobri este projeto esquecido no meu GitHub e decidi dar uma **repaginada completa**, melhorando o código, a organização e a apresentação visual dos scripts.
 
+## 🌐 Versão Web — Demo online
+
+Agora o projeto também está disponível como uma aplicação web interativa. A versão web roda a lógica Python diretamente no navegador via **Brython**, permitindo testar as mesmas técnicas sem instalar nada.
+
+- Acesse a demo: https://felipe-alcantara.github.io/Amostragem-casual-simples/
+- Sem instalação — roda no navegador (desktop e mobile)
+- Mantém a lógica Python original (os módulos foram adaptados para Brython)
+- Recursos: tema claro/escuro, interface responsiva, cálculos em tempo real e explicações didáticas
+
+Como testar rapidamente:
+
+1. Abrir a demo no link acima (recomendado).
+2. Ou, localmente, abra o `index.html` na raiz do repositório (ou `docs/index.html`) no navegador.
+3. Para servir localmente via HTTP (recomendado), execute:
+
+```bash
+python -m http.server 8000
+# e depois acesse: http://localhost:8000/
+```
+
+
 ### 🎯 Objetivo
 
 Fornecer implementações práticas e didáticas de três principais técnicas de amostragem estatística:
