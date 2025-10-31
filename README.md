@@ -4,12 +4,23 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
-> Uma coleção de scripts Python para demonstrar e calcular diferentes técnicas de amostragem estatística de forma interativa e educacional.
+
+## Índice
+
+- 🔎 [🌐 Versão Web — Demo online](#web)  ← Destaque (clique para abrir a demo)
+- 📖 [Sobre o Projeto](#sobre-o-projeto)
+- 🎯 [Objetivo](#objetivo)
+- 🚀 [Para Que Serve?](#para-que-serve)
+- 🛠️ [Técnicas Implementadas](#técnicas-implementadas)
+- 💻 [Como Usar](#como-usar)
+- 🤝 [Contribuindo](#contribuindo)
+
 
 ## 📖 Sobre o Projeto
 
 Este projeto nasceu durante minhas aulas de **Estatística em setembro de 2024**, quando percebi a necessidade de ter ferramentas práticas para visualizar e compreender melhor os diferentes métodos de amostragem. Recentemente (outubro de 2025), redescobri este projeto esquecido no meu GitHub e decidi dar uma **repaginada completa**, melhorando o código, a organização e a apresentação visual dos scripts.
 
+<a name="web"></a>
 ## 🌐 Versão Web — Demo online
 
 Agora o projeto também está disponível como uma aplicação web interativa. A versão web roda a lógica Python diretamente no navegador via **Brython**, permitindo testar as mesmas técnicas sem instalar nada.
