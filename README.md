@@ -13,6 +13,7 @@
 - 🚀 [Para Que Serve?](#para-que-serve)
 - 🛠️ [Técnicas Implementadas](#técnicas-implementadas)
 - 💻 [Como Usar](#como-usar)
+- 🧪 [Testes](#testes)
 - 🤝 [Contribuindo](#contribuindo)
 
 
@@ -33,11 +34,11 @@ Agora o projeto também está disponível como uma aplicação web interativa. A
 Como testar rapidamente:
 
 1. Abrir a demo no link acima (recomendado).
-2. Ou, localmente, abra o `index.html` na raiz do repositório (ou `docs/index.html`) no navegador.
-3. Para servir localmente via HTTP (recomendado), execute:
+2. Ou, localmente, sirva a pasta `docs/` via HTTP (o Brython precisa de HTTP para
+   carregar os módulos Python):
 
 ```bash
-python -m http.server 8000
+python -m http.server 8000 --directory docs
 # e depois acesse: http://localhost:8000/
 ```
 
@@ -64,12 +65,22 @@ Este projeto é útil para:
 ```
 Amostragem-casual-simples/
 ├── src/
-│   ├── amostragem_casual_simples.py          # Amostragem Casual Simples
-│   ├── amostragem_sistematica.py             # Amostragem Sistemática
-│   └── amostragem_proporcional_estratificada.py  # Amostragem Estratificada
+│   ├── amostragem.py                              # Lógica pura (regra de negócio)
+│   ├── amostragem_casual_simples.py              # CLI - Amostragem Casual Simples
+│   ├── amostragem_sistematica.py                 # CLI - Amostragem Sistemática
+│   └── amostragem_proporcional_estratificada.py  # CLI - Amostragem Estratificada
+├── tests/
+│   └── test_amostragem.py                        # Testes da lógica pura
+├── docs/                                         # Versão web (GitHub Pages)
+│   ├── index.html
+│   ├── css/style.css
+│   └── py/                                        # Apresentação Brython + cópia de amostragem.py
 ├── LICENSE
 └── README.md
 ```
+
+> A regra de negócio fica em `src/amostragem.py` e é reutilizada pela CLI e pela
+> versão web, mantendo cálculo e apresentação separados.
 
 ## 🛠️ Técnicas Implementadas
 
@@ -187,6 +198,15 @@ Ao estudar este projeto, você vai praticar:
 - ✅ Cálculo de proporções e percentuais
 - ✅ Estratificação de populações
 - ✅ Amostragem sistemática com intervalos
+
+## 🧪 Testes
+
+A lógica de cálculo e sorteio é coberta por testes com a biblioteca padrão
+(`unittest`), sem dependências externas. Para rodar:
+
+```bash
+python -m unittest discover -s tests
+```
 
 ## 🤝 Contribuindo
 
