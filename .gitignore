@@ -1,0 +1,5 @@
+
+/felixo-standards
+__pycache__/
+*.pyc
+.sixth/
