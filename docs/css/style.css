@@ -459,3 +459,13 @@ footer a:hover {
     font-size: 4rem;
     margin-bottom: 20px;
 }
+
+/* Utilitários usados pela camada de apresentação (docs/py) */
+.mono {
+    font-family: monospace;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-weight: bold;
+}
